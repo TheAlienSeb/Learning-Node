@@ -11,3 +11,38 @@ const server = http.createServer( (req, res) => { // creates a server with reque
 })
 
 server.listen(5000)
+
+const http = require('http')//http module
+
+const serve2r = http.createServer( (req, res) => { // creates a server with request, and result
+    console.log('request event')
+    res.end('Hello World')
+})
+let port = 5000
+server.listen(port, () => {
+    console.log(`listening on port ${port}`)
+})
+
+
+const http = require('http')
+
+
+const server4 = http.createServer((req,res) => {
+    if(req.url === '/'){
+        return res.end('Home Page')
+    }
+    if(req.url === '/about'){
+        //Blocking code
+        for( let i = 0; i<1500; i++){
+            for(let j = 0; j<1500; j++){
+                console.log(`${i} + ${j}`)
+            }
+        }
+        return res.end('About Page')
+    }
+    return res.end('Error Page')
+})
+
+server.listen(5000, () => {
+    console.log('server is listening on port 5000')
+})
