@@ -2,7 +2,7 @@
 
 const {readFile} = require('fs')
 console.log('start')
-readFile('./content/first.txt','utf-8', (err,result) => {
+readFile('./content/first.txt','utf-8', (err,result) => { // a call back
     if (err){
         console.log(err)
         return
